@@ -1,297 +1,93 @@
-﻿//function concate() {
-//    var m = document.getElementById("str1").value;
-//    var n = document.getElementById("str2").value;
+﻿function concate_str() {
+    var m = document.getElementById("str1").value;
+    var n = document.getElementById("str2").value;
+    var objString = new string_class(m);
+    
+    document.getElementById("output").innerHTML = objString.concat(n);
+}
 
-//    var str=m+n;
-//    //for (var i = 0; i < arguments.length; i++) {
-//    //    str += arguments[i];
-//    //}
+function length_str() {
+    var m = document.getElementById("str1").value;
+    var objString = new string_class(m);
    
-//    document.getElementById("output").innerHTML = str;
-//}
-
-//function lengthOfString() {
-//    var m = document.getElementById("str1").value;
-//    var count = 0;
-//    if (document.getElementById("str1").value == "") {
-//        throw ("you didn't enter any string");
-//    }
-//    else {
-//        while (m[count] != null)
-//            count = count + 1;
-
-//        document.getElementById("out1").innerHTML = count;
-//    }
-   
-//}
-//function charAt()
-//{
-//    var m = document.getElementById("str1").value;
-//    var pos = parseInt(document.getElementById("pos").value);
-//    if (pos > m.length)
-//        throw ("entered position exceeds string length");
-//    else if(pos<0)
-//        throw ("can not enter negative values");
-//    else {
-//        document.getElementById("outPos").innerHTML = m[pos];
-//    }
-//  }
-
-//function substring() {
-//    var m = document.getElementById("str1").value;
-//    var strt_index = parseInt(document.getElementById("strt_index").value);
-//    var last_index = parseInt(document.getElementById("last_index").value);
-//    if (strt_index < 0 || last_index < 0)
-//        throw ("can not enter negative values");
-//    else if (strt_index > last_index)
-//        throw ("entered start index exceeds last index");
-//    else if (last_index > m.length || strt_index > m.length)
-//        throw ("entered indices exceeds string length");
-//    else {
-//        var str = m[strt_index];
-//        strt_index++;
-//        if (document.getElementById("last_index").value == "") {
-//            while (m[strt_index] != null) {
-//                str += m[strt_index];
-//                strt_index++;
-//            }
-//        }
-//        else {
-//            while (strt_index <= last_index && m[strt_index] != null) {
-//                str += m[strt_index];
-//                strt_index++;
-//            }
-//        }
-//        document.getElementById("outstr").innerHTML = str;
-//    }
-//}
-
-//function indexof()
-//{
-//    var main = document.getElementById("str1").value;
-//    var sub = document.getElementById("substr").value;
-//    debugger;
-//    var i=0;
-//    var j = 0;
-//    var k, count = 0;
-//    var data=new Array();
-//    while(main[i]!=null)
-//    {
-//        j = 0; flag = 0;
+    if (document.getElementById("str1").value == "") {
+        throw ("you didn't enter any string");
+    }
+    else {
         
-//        var temp = i;
-//        for (var i = temp; main[i]!=null; i++)
-//        {
-//            for (var temp1 = i, j = 0; sub[j]!=null; temp1++, j++)
-//            {
-//                if (sub[j] == main[temp1]) {
-//                    flag = 1;
-//                    break;
-//                }
-//            }
-//            if (flag == 1 && j==0)
-//            {
-//                flag = 0;
-//                break;
-//            }
-//        }
-//        if (main[i] == null && data.length==0) {
-//            flag = 1;
-//            break;
-//        }
-//        else if (main[i] == null && data.length != 0)
-//        {
-//            flag = 0;
-//            break;
-//        }
-            
+        document.getElementById("out1").innerHTML = objString.len();
+    }
+   
+}
+function charAt_str()
+{
+    var m = document.getElementById("str1").value;
+    var pos = parseInt(document.getElementById("pos").value);
+    var objString = new string_class(m);
+    if (pos > m.length)
+        throw ("entered position exceeds string length");
+    else if(pos<0)
+        throw ("can not enter negative values");
+    else {
+        document.getElementById("outPos").innerHTML =objString.charat(pos);
+    }
+  }
 
-//        else if (main[i] == sub[j]) {
-//            k = i;
-//            while (main[i] == sub[j] && sub[j] != null && main[i] != null) {
-//                i++;
-//                j++;
-//            }
-//            if (main[i] == null && sub[j] == null) {
-//                data[count] = k;
-//                count++;
-//                break;
-//            }
-//            else if (sub[j] == null && main[i] != null) {
-//                data[count] = k;
-//                count++;
-//                continue;
-//            }
-//            else if (main[i] != sub[j]) {
-//                i = k + 1;
-//                continue;
-//            }
-           
+function substring_str() {
+    var m = document.getElementById("str1").value;
+    var strt_index = parseInt(document.getElementById("strt_index").value);
+    var last_index = parseInt(document.getElementById("last_index").value);
+    if (strt_index < 0 || last_index < 0)
+        throw ("can not enter negative values");
+    else if (strt_index > last_index)
+        throw ("entered start index exceeds last index");
+    else if (last_index > m.length || strt_index > m.length)
+        throw ("entered indices exceeds string length");
+    else {
+        var objString = new string_class(m);
+        document.getElementById("outstr").innerHTML = objString.substring(strt_index,last_index);
+    }
+}
 
-//        }
-//    }
-//    if (flag == 1) {
-//        document.getElementById("outdata").innerHTML = "given string doesnt occur in a main string";
-//    }
-//    else
-//        document.getElementById("outdata").innerHTML = data[0];
-//}
+function indexof_str()
+{
+    var main = document.getElementById("str1").value;
+    var sub = document.getElementById("substr").value;
+    var objString = new string_class(main);
+    var val = objString.indexof(sub);
+    if (val == -1) {
+        document.getElementById("outdata").innerHTML = "given string doesnt occur in a main string";
+    }
+    else
+        document.getElementById("outdata").innerHTML = val;
+}
 
 
-//function lastindexof() {
-//    var main = document.getElementById("str1").value;
-//    var sub = document.getElementById("substr1").value;
-//    debugger;
-//    var i = 0;
-//    var j = 0;
-//    var k, count = 0;
-//    var data = new Array();
-//    while (main[i] != null) {
-//        j = 0; flag = 0;
+function lastindexof_str() {
+    var main = document.getElementById("str1").value;
+    var sub = document.getElementById("substr1").value;
+    var objString = new string_class(main);
+    var val = objString.lastindexof(sub);
+    if (val == -1) {
+        document.getElementById("outlastdata").innerHTML = "given string doesnt occur in a main string";
+    }
+    else
+        document.getElementById("outlastdata").innerHTML = val;
+}
 
-//        var temp = i;
-//        for (var i = temp; main[i] != null; i++) {
-//            for (var temp1 = i, j = 0; sub[j] != null; temp1++, j++) {
-//                if (sub[j] == main[temp1]) {
-//                    flag = 1;
-//                    break;
-//                }
-//            }
-//            if (flag == 1 && j == 0) {
-//                flag = 0;
-//                break;
-//            }
-//        }
-//        if (main[i] == null && data.length == 0) {
-//            flag = 1;
-//            break;
-//        }
-//        else if (main[i] == null && data.length != 0) {
-//            flag = 0;
-//            break;
-//        }
+function replace_str() {
+    var main = document.getElementById("str1").value;
+    var sub = document.getElementById("substr2").value;
+    var other = document.getElementById("other").value;
+    var objString = new string_class(main);
+    var val = objString.replace_sub(sub,other);
+    if (val == main) {
+        document.getElementById("new_string").innerHTML = "given string doesnt occur in a main string";
+    }
+    else
+        document.getElementById("new_string").innerHTML = val;
 
-
-//        else if (main[i] == sub[j]) {
-//            k = i;
-//            while (main[i] == sub[j] && sub[j] != null && main[i] != null) {
-//                i++;
-//                j++;
-//            }
-//            if (main[i] == null && sub[j] == null) {
-//                data[count] = k;
-//                count++;
-//                break;
-//            }
-//            else if (sub[j] == null && main[i] != null) {
-//                data[count] = k;
-//                count++;
-//                continue;
-//            }
-//            else if (main[i] != sub[j]) {
-//                i = k + 1;
-//                continue;
-//            }
-
-
-//        }
-//    }
-//    if (flag == 1) {
-//        document.getElementById("outlastdata").innerHTML = "given string doesnt occur in a main string";
-//    }
-//    else
-//        document.getElementById("outlastdata").innerHTML = data[data.length-1];
-//}
-
-//function replace_() {
-//    var main = document.getElementById("str1").value;
-//    var sub = document.getElementById("substr2").value;
-//    var other = document.getElementById("other").value;
-//    debugger;
-//    var i = 0;
-//    var j = 0;
-//    var k, count = 0;
-//    var data = new Array();
-//    while (main[i] != null) {
-//        j = 0; flag = 0;
-
-//        var temp = i;
-//        for (var i = temp; main[i] != null; i++) {
-//            for (var temp1 = i, j = 0; sub[j] != null; temp1++, j++) {
-//                if (sub[j] == main[temp1]) {
-//                    flag = 1;
-//                    break;
-//                }
-//            }
-//            if (flag == 1 && j == 0) {
-//                flag = 0;
-//                break;
-//            }
-//        }
-//        if (main[i] == null && data.length == 0) {
-//            flag = 1;
-//            break;
-//        }
-//        else if (main[i] == null && data.length != 0) {
-//            flag = 0;
-//            break;
-//        }
-
-
-//        else if (main[i] == sub[j]) {
-//            k = i;
-//            while (main[i] == sub[j] && sub[j] != null && main[i] != null) {
-//                i++;
-//                j++;
-//            }
-//            if (main[i] == null && sub[j] == null) {
-//                data[count] = k;
-//                count++;
-//                break;
-//            }
-//            else if (sub[j] == null && main[i] != null) {
-//                data[count] = k;
-//                count++;
-//                continue;
-//            }
-//            else if (main[i] != sub[j]) {
-//                i = k + 1;
-//                continue;
-//            }
-
-
-//        }
-//    }
-//    if (flag == 1) {
-//        document.getElementById("new_string").innerHTML = "given string doesnt occur in a main string";
-//    }
-//    else
-//    {
-//        //var new_main = null;
-//        if (data[0] == 0) {
-//            var new_main = other;
-
-//            for (var i = sub.length; main[i] != null; i++) {
-//                new_main += main[i];
-//            }
-//        }
-//        else {
-//            new_main = main[0];
-//            for (var i = 1; i <data[0]; i++) {
-//                new_main += main[i];
-//            }
-//            for (var i =0; i < other.length; i++) {
-//                new_main += other[i];
-//            }
-//            for (var i = data[0]+sub.length; main[i] != null; i++) {
-//                new_main += main[i];
-//            }
-
-//        }
-//        document.getElementById("new_string").innerHTML = new_main;
-//    }
-
-//}
+}
 
 
 
@@ -303,14 +99,12 @@
         //var m = document.getElementById("str1").value;
         var m = this.main;
         var count = 0;
-        //if (document.getElementById("str1").value == "") {
-        //    throw ("you didn't enter any string");
-        //}
-        //else {
+        
+        
             while (m[count] != null)
                 count = count + 1; 
             return count;
-        //}
+        
     };
 
     this.concat = function concate(val_str) {
@@ -421,7 +215,7 @@
             }
         }
         if (flag == 1) {
-            console.log("given string doesnt occur in main string");
+            //console.log("given string doesnt occur in main string");
             return -1;
         }
         else
@@ -588,3 +382,6 @@
 
 }
 
+
+
+ 

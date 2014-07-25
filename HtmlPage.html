@@ -14,40 +14,40 @@
 <body>
     <p>main string :  <input type="text" id="str1" /></p>
     <p>second string: <input type="text" id="str2" /></p><br/>
-    
-    <button type="button" class="btn btn-default" onclick="concate()">concatinate</button><br/>
+    <div id="one">
+    <button type="button" id="1" class="btn btn-default" onclick="concate_str()">concatinate</button><br/>
     result of concatination:
     <p id="output"></p><br/>
-     <button type="button" class="btn btn-default" onclick="lengthOfString()">length</button><br/>
+     <button type="button" class="btn btn-default" onclick="length_str()">length</button><br/>
     length of 1st string:
     <p id="out1"></p><br/>
-    <button type="button" class="btn btn-default" onclick="charAt()">char at:</button><input type="text" id="pos" /><br/>
+    <button type="button" class="btn btn-default" onclick="charAt_str()">char at:</button><input type="text" id="pos" /><br/>
    character at given position:
     <p id="outPos"></p><br/>
 
     
        <p>starting index: <input type="text" id="strt_index" /></p>
        <p> last  index: <input type="text" id="last_index" /></p>
-       <button type="button" class="btn btn-default" onclick="substring()">sub string:</button><br/>
+       <button type="button" class="btn btn-default" onclick="substring_str()">sub string:</button><br/>
             required sub string: 
     <p id="outstr"> </p><br/>
 
     <p>sub string:<input type="text" id="substr" /></p>
-     <button type="button" class="btn btn-default" onclick="indexof()">occurance:</button><br/>
+     <button type="button" class="btn btn-default" onclick="indexof_str()">occurance:</button><br/>
             first occurances: 
     <p id="outdata"> </p><br/>
 
     <p>sub string:<input type="text" id="substr1" /></p>
-     <button type="button" class="btn btn-default" onclick="lastindexof()">last occurance:</button><br/>
+     <button type="button" class="btn btn-default" onclick="lastindexof_str()">last occurance:</button><br/>
             last occurances: 
     <p id="outlastdata"> </p><br/>
 
 
     <p>sub string to be replaced:<input type="text" id="substr2" /></p>
     <p>sub string to be replaced by:<input type="text" id="other" /></p>
-     <button type="button" class="btn btn-default" onclick="replace_()">replace it:</button><br/>
+     <button type="button" class="btn btn-default" onclick="replace_str()">replace it:</button><br/>
             replaced string:
     <p id="new_string"> </p><br/>
-    
+    </div>
 </body>
 </html>
