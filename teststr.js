@@ -388,18 +388,16 @@ var str,m,n;
        
             objReplace.style.display="block";
             
+        debugger;
+        var val = str.replace_sub(replaceStr,other);
         
-        var val = str.replace_sub(sub_str_replace,other);
-        if (val == main) {
-            document.getElementById("subReplace").innerHTML = "given string doesnt occur in a main string";
-        }
-         else
+        
             document.getElementById("subReplace").innerHTML = val;
 
-        }
+        
 
     }
     
-   
+   }
 
  }
