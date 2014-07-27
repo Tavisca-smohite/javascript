@@ -1,96 +1,4 @@
-﻿function concate_str() {
-    var m = document.getElementById("str1").value;
-    var n = document.getElementById("str2").value;
-    var objString = new string_class(m);
-    
-    document.getElementById("output").innerHTML = objString.concat(n);
-}
-
-function length_str() {
-    var m = document.getElementById("str1").value;
-    var objString = new string_class(m);
-   
-    if (document.getElementById("str1").value == "") {
-        throw ("you didn't enter any string");
-    }
-    else {
-        
-        document.getElementById("out1").innerHTML = objString.len();
-    }
-   
-}
-function charAt_str()
-{
-    var m = document.getElementById("str1").value;
-    var pos = parseInt(document.getElementById("pos").value);
-    var objString = new string_class(m);
-    if (pos > m.length)
-        throw ("entered position exceeds string length");
-    else if(pos<0)
-        throw ("can not enter negative values");
-    else {
-        document.getElementById("outPos").innerHTML =objString.charat(pos);
-    }
-  }
-
-function substring_str() {
-    var m = document.getElementById("str1").value;
-    var strt_index = parseInt(document.getElementById("strt_index").value);
-    var last_index = parseInt(document.getElementById("last_index").value);
-    if (strt_index < 0 || last_index < 0)
-        throw ("can not enter negative values");
-    else if (strt_index > last_index)
-        throw ("entered start index exceeds last index");
-    else if (last_index > m.length || strt_index > m.length)
-        throw ("entered indices exceeds string length");
-    else {
-        var objString = new string_class(m);
-        document.getElementById("outstr").innerHTML = objString.substring(strt_index,last_index);
-    }
-}
-
-function indexof_str()
-{
-    var main = document.getElementById("str1").value;
-    var sub = document.getElementById("substr").value;
-    var objString = new string_class(main);
-    var val = objString.indexof(sub);
-    if (val == -1) {
-        document.getElementById("outdata").innerHTML = "given string doesnt occur in a main string";
-    }
-    else
-        document.getElementById("outdata").innerHTML = val;
-}
-
-
-function lastindexof_str() {
-    var main = document.getElementById("str1").value;
-    var sub = document.getElementById("substr1").value;
-    var objString = new string_class(main);
-    var val = objString.lastindexof(sub);
-    if (val == -1) {
-        document.getElementById("outlastdata").innerHTML = "given string doesnt occur in a main string";
-    }
-    else
-        document.getElementById("outlastdata").innerHTML = val;
-}
-
-function replace_str() {
-    var main = document.getElementById("str1").value;
-    var sub = document.getElementById("substr2").value;
-    var other = document.getElementById("other").value;
-    var objString = new string_class(main);
-    var val = objString.replace_sub(sub,other);
-    if (val == main) {
-        document.getElementById("new_string").innerHTML = "given string doesnt occur in a main string";
-    }
-    else
-        document.getElementById("new_string").innerHTML = val;
-
-}
-
-
-
+﻿
  function string_class(val)
 {
     this.main = val;
@@ -382,6 +290,116 @@ function replace_str() {
 
 }
 
+var str,m,n;
 
 
- 
+
+ window.onload=function(){
+      //debugger;
+      var obj=document.getElementById('length');
+       var objCon=document.getElementById('concate');
+       var objCharat=document.getElementById('charat');
+       var objSubStr=document.getElementById('substr');
+       var objIndexOf=document.getElementById('indexOfOp1');
+       var objLastIndexOf=document.getElementById('lastindexOfOp1');
+       var objReplace=document.getElementById('substrReplace');
+
+      obj.style.visibility="hidden";
+      objCon.style.display="none";
+      objCharat.style.display="none";
+      objSubStr.style.display="none";
+      objIndexOf.style.display="none";
+      objLastIndexOf.style.display="none";
+      objReplace.style.display="none";
+
+      var f=document.getElementsByClassName("dropdown");
+      
+
+      f[0].onclick=function(){
+        m = document.getElementById("str1").value;
+         n = document.getElementById("str2").value;
+        var pos = parseInt(document.getElementById("pos").value);
+        var strt_index = parseInt(document.getElementById("strt_index").value);
+        var last_index = parseInt(document.getElementById("last_index").value);
+        var subIndex = document.getElementById("indexof_operation").value;
+        var subLastIndex = document.getElementById("lastindexof_operation").value;
+        var replaceStr = document.getElementById("sub_str_replace").value;
+        var other = document.getElementById("other").value;
+    
+     str=new string_class(m);
+    var stringAction = document.getElementsByClassName("string_op");
+    
+   
+    stringAction[0].getElementsByTagName('a')[0].onclick = function () {
+            //str=new string_class(m);
+            obj.style.visibility="visible";
+        document.getElementById("len").innerHTML = str.len();
+    }
+
+    stringAction[0].getElementsByTagName('a')[1].onclick = function () {
+            //str=new string_class(m);
+            objCon.style.display="block";
+        document.getElementById("con").innerHTML = str.concat(n);
+    }
+
+    stringAction[0].getElementsByTagName('a')[2].onclick = function () {
+    if (pos > m.length)
+        throw ("entered position exceeds string length");
+    else if(pos<0)
+        throw ("can not enter negative values");
+    else {
+        objCharat.style.display="block";
+        document.getElementById("char_at").innerHTML =str.charat(pos);
+    }
+    }
+
+    stringAction[0].getElementsByTagName('a')[3].onclick = function () {
+        if (strt_index < 0 || last_index < 0)
+            throw ("can not enter negative values");
+        else if (strt_index > last_index)
+            throw ("entered start index exceeds last index");
+        else if (last_index > m.length || strt_index > m.length)
+            throw ("entered indices exceeds string length");
+        else {
+             objSubStr.style.display="block";
+
+            document.getElementById("sub").innerHTML = str.substring(strt_index,last_index);
+        }
+    }
+    
+     stringAction[0].getElementsByTagName('a')[4].onclick = function () {     
+        var val = str.indexof(subIndex);
+            objIndexOf.style.display="block";
+            document.getElementById("indexof_op").innerHTML = val;
+       
+    }
+
+
+    stringAction[0].getElementsByTagName('a')[5].onclick = function () {     
+        var val = str.lastindexof(subLastIndex);
+            objLastIndexOf.style.display="block";
+            document.getElementById("lastindexof_op").innerHTML = val;
+       
+    }
+
+    
+
+    stringAction[0].getElementsByTagName('a')[6].onclick = function () {     
+       
+            objReplace.style.display="block";
+            
+        
+        var val = str.replace_sub(sub_str_replace,other);
+        if (val == main) {
+            document.getElementById("subReplace").innerHTML = "given string doesnt occur in a main string";
+        }
+         else
+            document.getElementById("subReplace").innerHTML = val;
+
+        }
+
+    }
+    
+   
+
+ }

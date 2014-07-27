@@ -1,53 +1,129 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
    <title>string</title>
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
-    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet"/>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
-    <script src="bootstrap/js/jquery-2.1.1.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
-   
+    <link href="css\bootstrap.css" rel="stylesheet"/>
+    <link href="css\bootstrap-theme.css" rel="stylesheet"/>  
+    <script src="js\jquery-2.1.1.min.js"></script>
+    <script src="js\bootstrap.js"></script>  
      <script src="teststr.js"></script>
     
 </head>
 <body>
-    <p>main string :  <input type="text" id="str1" /></p>
-    <p>second string: <input type="text" id="str2" /></p><br/>
-    <div id="one">
-    <button type="button" id="1" class="btn btn-default" onclick="concate_str()">concatinate</button><br/>
-    result of concatination:
-    <p id="output"></p><br/>
-     <button type="button" class="btn btn-default" onclick="length_str()">length</button><br/>
-    length of 1st string:
-    <p id="out1"></p><br/>
-    <button type="button" class="btn btn-default" onclick="charAt_str()">char at:</button><input type="text" id="pos" /><br/>
-   character at given position:
-    <p id="outPos"></p><br/>
-
+    <div class="container" style="background-color:rgb(242, 228, 209)">
+    <div class="row" style="padding-bottom:2%">
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">
+            <span class= "pull-left">main string to be entered : </span><span class="pull-left"><input type="text" id="str1" placeholder="main string"/></span> 
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6" id="length">
+             length of main string:
+             <p id="len"></p>
+        </div>
     
-       <p>starting index: <input type="text" id="strt_index" /></p>
-       <p> last  index: <input type="text" id="last_index" /></p>
-       <button type="button" class="btn btn-default" onclick="substring_str()">sub string:</button><br/>
-            required sub string: 
-    <p id="outstr"> </p><br/>
-
-    <p>sub string:<input type="text" id="substr" /></p>
-     <button type="button" class="btn btn-default" onclick="indexof_str()">occurance:</button><br/>
-            first occurances: 
-    <p id="outdata"> </p><br/>
-
-    <p>sub string:<input type="text" id="substr1" /></p>
-     <button type="button" class="btn btn-default" onclick="lastindexof_str()">last occurance:</button><br/>
-            last occurances: 
-    <p id="outlastdata"> </p><br/>
-
-
-    <p>sub string to be replaced:<input type="text" id="substr2" /></p>
-    <p>sub string to be replaced by:<input type="text" id="other" /></p>
-     <button type="button" class="btn btn-default" onclick="replace_str()">replace it:</button><br/>
-            replaced string:
-    <p id="new_string"> </p><br/>
+</div>
+<div class="row" style="padding-bottom:2%">
+    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">
+            <span class= "pull-left">string  to be concatinated with: </span><span class="pull-left"><input type="text" id="str2" placeholder="Second string"/></span> 
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6" id="concate">
+             concatinated string:
+             <p id="con"></p>
+        </div>
+    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">
+            <span class= "pull-left">enter characters position:</span><span class="pull-left"><input type="text" id="pos" placeholder="position"/></span> 
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6" id="charat">
+             character at given position:
+             <p id="char_at"></p>
+        </div>
+    
     </div>
+
+    <div class="row" style="padding-bottom:1%">
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">to find sub string from main string:</div>
+    </div>
+    <div class="row" style="padding-bottom:2%">
+
+    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">
+            <span class= "pull-left">enter first index : <span><input type="text" id="strt_index" placeholder="1st index"/></span> </span>
+        </div>
+    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">
+            <span class= "pull-left">enter last index : <span><input type="text" id="last_index" placeholder="last index"/></span> </span>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6" id="substr">
+             resulted substring:
+             <p id="sub"></p>
+        </div>
+    
+    </div>
+
+    <div class="row" style="padding-bottom:1%">
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">to find index of given string:</div>
+    </div>
+    <div class="row" style="padding-bottom:2%">
+
+    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">
+            <span class= "pull-left"> enter substring to be found: <span><input type="text" id="indexof_operation" placeholder="indexof"/></span> </span>
+        </div>
+    
+    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6" id="indexOfOp1">
+             1st occurance of given string:
+             <p id="indexof_op"></p>
+        </div>
+    </div>
+
+    <div class="row" style="padding-bottom:1%">
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">to find last index of given string:</div>
+    </div>
+    <div class="row" style="padding-bottom:2%">
+
+    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">
+            <span class= "pull-left"> enter substring to be found: <span><input type="text" id="lastindexof_operation" placeholder="lastindexof"/></span> </span>
+        </div>
+    
+    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6" id="lastindexOfOp1">
+             1st occurance of given string:
+             <p id="lastindexof_op"></p>
+        </div>
+    </div>
+
+    <div class="row" style="padding-bottom:1%">
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">to replace sub string in main string:</div>
+    </div>
+    <div class="row" style="padding-bottom:2%">
+
+    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">
+            <span class= "pull-left">sub string to be replaced:<span><input type="text" id="sub_str_replace" placeholder="substringReplace"/></span> </span>
+        </div>
+    <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6">
+            <span class= "pull-left">sub string to be replaced by:<span><input type="text" id="other" placeholder="replace with"/></span> </span>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-xs-12 col-sm-6" id="substrReplace">
+             resulted string:
+             <p id="subReplace"></p>
+        </div>
+    
+    </div>
+
+
+<div class="caption" style="background-color:#antiquewhite">
+    <div class="dropdown ">
+   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="font-size:20px">
+    click to perform string operations <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu string_op" role="menu">
+    <li><a href="#">length</a></li>
+    <li><a href="#">concate</a></li>
+    <li><a href="#">char at</a></li>
+    <li><a href="#">substring</a></li>
+    <li><a href="#">IndexOf</a></li>
+    <li><a href="#">LastIndexOf</a></li>
+    <li><a href="#">replace</a></li>
+  </ul>
+    </div>
+</div>
+</div>
 </body>
 </html>
